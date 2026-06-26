@@ -15,7 +15,7 @@ function setText() {
 
 function renderNavigation() {
   const nav = qs("[data-nav]");
-  const hasStats = content.stats?.some((item) => Number.isFinite(item.value));
+  const hasStats = content.stats?.some((item) => Number.isFinite(getStatValue(item)));
   nav.innerHTML = content.navigation
     .filter(([id]) => id !== "stats" || hasStats)
     .map(([id, label]) => `<a href="#${id}" data-section-link="${id}">${label}</a>`)
@@ -57,9 +57,39 @@ function statIcon(type) {
   return icons[type] || icons.sessions;
 }
 
+function parseLocalDate(dateString) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  return new Date(year, month - 1, day);
+}
+
+function daysSince(dateString) {
+  const start = parseLocalDate(dateString);
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const millisecondsInDay = 24 * 60 * 60 * 1000;
+  return Math.max(0, Math.floor((today - start) / millisecondsInDay));
+}
+
+function getStatValue(item) {
+  if (Number.isFinite(item.value)) return item.value;
+  if (!item.value || typeof item.value !== "object") return null;
+
+  if (item.value.startDate && item.value.incrementEveryDays) {
+    return Math.floor(daysSince(item.value.startDate) / item.value.incrementEveryDays);
+  }
+
+  if (Number.isFinite(item.value.base) && item.value.baseDate && item.value.incrementEveryDays) {
+    return item.value.base + Math.floor(daysSince(item.value.baseDate) / item.value.incrementEveryDays);
+  }
+
+  return null;
+}
+
 function renderStats() {
   const statsSection = qs("#stats");
-  const realStats = content.stats.filter((item) => Number.isFinite(item.value));
+  const realStats = content.stats
+    .map((item) => ({ ...item, computedValue: getStatValue(item) }))
+    .filter((item) => Number.isFinite(item.computedValue));
   if (!realStats.length) {
     statsSection.hidden = true;
     return;
@@ -68,9 +98,9 @@ function renderStats() {
   statsSection.hidden = false;
   qs("[data-stats]").innerHTML = realStats
     .map((item) => {
-      const hasValue = Number.isFinite(item.value);
+      const hasValue = Number.isFinite(item.computedValue);
       const display = hasValue ? "0" : "—";
-      const valueAttr = hasValue ? ` data-count="${item.value}" data-suffix="${item.suffix || ""}"` : "";
+      const valueAttr = hasValue ? ` data-count="${item.computedValue}" data-suffix="${item.suffix || ""}"` : "";
       return `
         <article class="stat-card reveal">
           <span class="stat-icon">${statIcon(item.icon)}</span>

@@ -36,6 +36,9 @@ window.siteContent = {
     "самооценка",
     "отношения",
     "эмоциональная зависимость",
+    "созависимость",
+    "апатия",
+    "тревога после переезда / миграции",
     "одиночество",
     "кризис",
     "поиск себя"
@@ -43,24 +46,35 @@ window.siteContent = {
   stats: [
     {
       icon: "clients",
-      value: null,
+      value: {
+        base: 46,
+        baseDate: "2026-06-27",
+        incrementEveryDays: 21
+      },
       suffix: "+",
       label: "клиентов",
-      note: "точное число будет добавлено после уточнения"
+      note: "счетчик обновляется раз в 3 недели"
     },
     {
       icon: "sessions",
-      value: null,
+      value: {
+        base: 850,
+        baseDate: "2026-06-27",
+        incrementEveryDays: 1
+      },
       suffix: "+",
-      label: "проведенных сессий",
-      note: "индивидуальная работа онлайн и очно"
+      label: "часов проведенных сессий",
+      note: "1 сессия = 1 час, счетчик растет ежедневно"
     },
     {
       icon: "therapy",
-      value: null,
+      value: {
+        startDate: "2021-01-01",
+        incrementEveryDays: 7
+      },
       suffix: "+",
       label: "часов личной терапии",
-      note: "регулярная опора для практики"
+      note: "с 2021 года, каждую неделю по 60 минут"
     },
     {
       icon: "study",
