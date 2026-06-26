@@ -16,9 +16,12 @@ window.siteContent = {
     tiktok: "https://www.tiktok.com/@luzansergey/",
     taplink: "https://taplink.cc/luzan_psy",
     offer: "https://taplink.cc/luzan_psy_oferta",
-    education: "https://drive.google.com/drive/folders/14cOMGOBuwntsae7J5V_auDslr9-wVck_?usp=sharing"
+    privacy: "privacy.html",
+    education: "https://drive.google.com/drive/folders/14cOMGOBuwntsae7J5V_auDslr9-wVck_?usp=sharing",
+    bookingEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSfgN3sonqlshvwsRlENaCSzEirda6tQcOQl8snQQvuRC_BXyA/viewform?embedded=true"
   },
   navigation: [
+    ["stats", "Опыт"],
     ["work", "С чем работаю"],
     ["about", "Обо мне"],
     ["process", "Встречи"],
@@ -36,6 +39,43 @@ window.siteContent = {
     "одиночество",
     "кризис",
     "поиск себя"
+  ],
+  stats: [
+    {
+      icon: "clients",
+      value: null,
+      suffix: "+",
+      label: "клиентов",
+      note: "точное число будет добавлено после уточнения"
+    },
+    {
+      icon: "sessions",
+      value: null,
+      suffix: "+",
+      label: "проведенных сессий",
+      note: "индивидуальная работа онлайн и очно"
+    },
+    {
+      icon: "therapy",
+      value: null,
+      suffix: "+",
+      label: "часов личной терапии",
+      note: "регулярная опора для практики"
+    },
+    {
+      icon: "study",
+      value: null,
+      suffix: "+",
+      label: "часов обучения",
+      note: "гештальт и интегральная травматерапия"
+    },
+    {
+      icon: "practice",
+      value: null,
+      suffix: "+",
+      label: "часов практики",
+      note: "супервизии, интервизии и клиентская работа"
+    }
   ],
   about: {
     lead:
