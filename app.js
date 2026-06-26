@@ -23,7 +23,9 @@ function renderNavigation() {
 }
 
 function renderCards() {
+  qs("[data-work-intro]").textContent = content.workIntro;
   qs("[data-work]").innerHTML = content.workWith.map((item) => `<article class="work-card reveal">${item}</article>`).join("");
+  qs("[data-not-for-me]").innerHTML = content.notForMe.map((item) => `<li>${item}</li>`).join("");
 
   qs("[data-prices]").innerHTML = content.prices
     .map(
@@ -32,6 +34,7 @@ function renderCards() {
           <h3>${title}</h3>
           <p>${note}</p>
           <strong>${price}</strong>
+          <a class="text-link" href="${content.links.booking}" target="_blank" rel="noopener">Записаться</a>
         </article>`
     )
     .join("");
@@ -140,6 +143,16 @@ function renderProcessAndApproach() {
           <span class="timeline-num">${num}</span>
           <h3>${title}</h3>
           <p>${text}</p>
+        </article>`
+    )
+    .join("");
+
+  qs("[data-meeting-facts]").innerHTML = content.meetingFacts
+    .map(
+      ([title, text]) => `
+        <article>
+          <span>${title}</span>
+          <strong>${text}</strong>
         </article>`
     )
     .join("");
