@@ -70,9 +70,23 @@ function daysSince(dateString) {
   return Math.max(0, Math.floor((today - start) / millisecondsInDay));
 }
 
+function monthsSince(dateString) {
+  const start = parseLocalDate(dateString);
+  const now = new Date();
+  const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  let months = (today.getFullYear() - start.getFullYear()) * 12 + today.getMonth() - start.getMonth();
+  if (today.getDate() < start.getDate()) months -= 1;
+  return Math.max(0, months);
+}
+
 function getStatValue(item) {
   if (Number.isFinite(item.value)) return item.value;
   if (!item.value || typeof item.value !== "object") return null;
+
+  if (Number.isFinite(item.value.base) && item.value.baseDate && item.value.incrementEveryMonths) {
+    const periods = Math.floor(monthsSince(item.value.baseDate) / item.value.incrementEveryMonths);
+    return item.value.base + periods * (item.value.incrementBy || 1);
+  }
 
   if (item.value.startDate && item.value.incrementEveryDays) {
     return Math.floor(daysSince(item.value.startDate) / item.value.incrementEveryDays);

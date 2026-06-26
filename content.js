@@ -78,10 +78,15 @@ window.siteContent = {
     },
     {
       icon: "study",
-      value: null,
+      value: {
+        base: 830,
+        baseDate: "2026-06-27",
+        incrementEveryMonths: 1,
+        incrementBy: 16
+      },
       suffix: "+",
       label: "часов обучения",
-      note: "гештальт и интегральная травматерапия"
+      note: "счетчик добавляет 16 часов каждый месяц"
     },
     {
       icon: "practice",
