@@ -113,7 +113,7 @@ function renderStats() {
   qs("[data-stats]").innerHTML = realStats
     .map((item) => {
       const hasValue = Number.isFinite(item.computedValue);
-      const display = hasValue ? "0" : "—";
+      const display = hasValue ? `${item.computedValue}${item.suffix || ""}` : "—";
       const valueAttr = hasValue ? ` data-count="${item.computedValue}" data-suffix="${item.suffix || ""}"` : "";
       return `
         <article class="stat-card reveal">
@@ -202,15 +202,7 @@ function bindScrollEffects() {
         const valueNode = entry.target;
         const target = Number(valueNode.dataset.count);
         const suffix = valueNode.dataset.suffix || "";
-        const start = performance.now();
-        const duration = 1200;
-        const tick = (now) => {
-          const progress = Math.min((now - start) / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          valueNode.textContent = `${Math.round(target * eased)}${suffix}`;
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
+        valueNode.textContent = `${target}${suffix}`;
         countObserver.unobserve(valueNode);
       });
     },
