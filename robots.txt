@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luzanpsy.github.io/sitemap.xml
