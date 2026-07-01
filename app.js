@@ -251,7 +251,7 @@ function bindScrollEffects() {
     header.classList.toggle("is-scrolled", window.scrollY > 16);
     floatingAction.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.72);
     if (ambientQuotes) {
-      ambientQuotes.style.setProperty("--ambient-shift", `${Math.round(window.scrollY * -0.08)}px`);
+      ambientQuotes.style.setProperty("--ambient-shift", `${Math.round(window.scrollY * -0.38)}px`);
     }
   };
   updateHeader();
