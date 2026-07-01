@@ -136,6 +136,66 @@ body > *:not(.ambient-quotes) {
   right: 8vw;
 }
 
+.ambient-quotes span:nth-child(13) {
+  top: 400vh;
+  left: -4vw;
+}
+
+.ambient-quotes span:nth-child(14) {
+  top: 438vh;
+  right: -3vw;
+}
+
+.ambient-quotes span:nth-child(15) {
+  top: 476vh;
+  left: 10vw;
+}
+
+.ambient-quotes span:nth-child(16) {
+  top: 514vh;
+  right: 6vw;
+}
+
+.ambient-quotes span:nth-child(17) {
+  top: 552vh;
+  left: 2vw;
+}
+
+.ambient-quotes span:nth-child(18) {
+  top: 590vh;
+  right: -6vw;
+}
+
+.ambient-quotes span:nth-child(19) {
+  top: 628vh;
+  left: 14vw;
+}
+
+.ambient-quotes span:nth-child(20) {
+  top: 666vh;
+  right: 2vw;
+}
+
+.ambient-quotes span:nth-child(21) {
+  top: 704vh;
+  left: -2vw;
+}
+
+.ambient-quotes span:nth-child(22) {
+  top: 742vh;
+  right: 8vw;
+}
+
+.ambient-quotes span:nth-child(23) {
+  top: 780vh;
+  left: 8vw;
+}
+
+.ambient-quotes span:nth-child(24) {
+  top: 818vh;
+  right: -4vw;
+}
+
 a {
   color: inherit;
   text-decoration: none;
