@@ -167,6 +167,15 @@ function renderAbout() {
   qs("[data-about-lead]").textContent = content.about.lead;
   qs("[data-about-paragraphs]").innerHTML = content.about.paragraphs.map((text) => `<p>${text}</p>`).join("");
   qs("[data-about-facts]").innerHTML = content.about.facts.map((item) => `<span>${item}</span>`).join("");
+  qs("[data-about-education]").innerHTML = content.about.education
+    .map(
+      ([title, text]) => `
+        <article>
+          <strong>${title}</strong>
+          <p>${text}</p>
+        </article>`
+    )
+    .join("");
 }
 
 function renderProcess() {

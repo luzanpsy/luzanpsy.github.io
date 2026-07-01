@@ -679,6 +679,51 @@ p {
   font-weight: 800;
 }
 
+.education-panel {
+  display: grid;
+  gap: 18px;
+  margin-top: 10px;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(250, 248, 244, 0.66);
+}
+
+.education-panel .eyebrow {
+  margin-bottom: 8px;
+}
+
+.education-panel h3 {
+  font-size: clamp(24px, 2.4vw, 34px);
+}
+
+.education-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.education-list article {
+  min-height: 132px;
+  padding: 16px;
+  border: 1px solid rgba(216, 200, 184, 0.82);
+  border-radius: var(--radius);
+  background: rgba(255, 253, 249, 0.62);
+}
+
+.education-list strong {
+  display: block;
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.education-list p {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 .quote-card blockquote {
   color: var(--ink-soft);
   font-size: clamp(24px, 2.2vw, 34px);
@@ -998,6 +1043,7 @@ p {
   .stats-grid,
   .quotes-grid,
   .confidentiality-grid,
+  .education-list,
   .meeting-facts,
   .timeline {
     grid-template-columns: 1fr;
