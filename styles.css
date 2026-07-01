@@ -635,6 +635,14 @@ p {
   gap: 20px;
 }
 
+.contact-copy h2 {
+  max-width: 680px;
+  font-size: clamp(46px, 5.4vw, 76px);
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
 .about-copy p:not(.eyebrow),
 .contact-copy p,
 .form-copy p {
