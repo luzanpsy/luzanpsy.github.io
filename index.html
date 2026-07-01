@@ -3,16 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Сергей Лузан — гештальт-терапевт и травматерапевт</title>
-    <meta name="description" content="Частная практика Сергея Лузана. Работа с травмой, тревогой, отношениями, кризисами и эмоциональной устойчивостью. Запись в Telegram.">
-    <meta name="theme-color" content="#f7f4ef">
+    <title>Сергей Лузан - психолог, гештальт-терапевт</title>
+    <meta name="description" content="Психолог Сергей Лузан. Работа с тревогой, травмой, отношениями, стыдом, злостью, потерей контакта с собой и ощущением выживания.">
+    <meta name="theme-color" content="#f7f3ed">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Сергей Лузан — гештальт-терапевт и травматерапевт">
-    <meta property="og:description" content="Работа с травмой, тревогой, отношениями, кризисами и эмоциональной устойчивостью. Запись в Telegram.">
+    <meta property="og:title" content="Сергей Лузан - психолог, гештальт-терапевт">
+    <meta property="og:description" content="Работа с тревогой, травмой, отношениями, стыдом, злостью, потерей контакта с собой и ощущением выживания.">
     <meta property="og:image" content="https://luzanpsy.github.io/assets/images/sergey-hero.webp">
+    <meta property="og:url" content="https://luzanpsy.github.io/">
     <meta property="og:locale" content="ru_RU">
     <link rel="canonical" href="https://luzanpsy.github.io/">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/images/sergey-hero.webp" as="image" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
     <script type="application/ld+json">
@@ -23,46 +27,43 @@
             "@type": "Person",
             "@id": "https://luzanpsy.github.io/#person",
             "name": "Сергей Лузан",
-            "jobTitle": "Гештальт-терапевт и травматерапевт",
+            "jobTitle": "Психолог, гештальт-терапевт, травма-терапевт",
             "email": "9528291099@mail.com",
             "url": "https://luzanpsy.github.io/",
             "sameAs": [
-              "https://t.me/lusan",
+              "https://t.me/LUSAN_LUZAN",
               "https://instagram.com/luzansergey/",
               "https://www.tiktok.com/@luzansergey/"
             ]
           },
           {
-            "@type": "WebSite",
-            "@id": "https://luzanpsy.github.io/#website",
-            "name": "Сергей Лузан",
+            "@type": "ProfessionalService",
+            "@id": "https://luzanpsy.github.io/#therapy-service",
+            "name": "Психолог Сергей Лузан",
             "url": "https://luzanpsy.github.io/",
-            "inLanguage": "ru-RU",
-            "publisher": {
-              "@id": "https://luzanpsy.github.io/#person"
-            }
+            "areaServed": ["Краснодар", "Онлайн"],
+            "priceRange": "2500-9000 RUB",
+            "provider": { "@id": "https://luzanpsy.github.io/#person" }
           },
           {
-            "@type": "Service",
-            "@id": "https://luzanpsy.github.io/#therapy-service",
-            "name": "Индивидуальная психологическая консультация",
-            "serviceType": "Гештальт-терапия и травматерапия",
-            "areaServed": ["Краснодар", "Онлайн"],
-            "provider": {
-              "@id": "https://luzanpsy.github.io/#person"
-            },
-            "offers": [
+            "@type": "FAQPage",
+            "@id": "https://luzanpsy.github.io/#faq-schema",
+            "mainEntity": [
               {
-                "@type": "Offer",
-                "name": "Онлайн-консультация",
-                "price": "2500",
-                "priceCurrency": "RUB"
+                "@type": "Question",
+                "name": "Как проходит первая встреча?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Мы знакомимся, обсуждаем, что с вами происходит, чего вы ждете от терапии и насколько вам подходит мой темп и способ быть в контакте."
+                }
               },
               {
-                "@type": "Offer",
-                "name": "Очная консультация",
-                "price": "3500",
-                "priceCurrency": "RUB"
+                "@type": "Question",
+                "name": "Можно ли онлайн?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Да. Сергей работает онлайн с любой точки мира и очно в Краснодаре."
+                }
               }
             ]
           }
@@ -74,27 +75,40 @@
     <header class="site-header" data-header>
       <a class="brand" href="#top" aria-label="Сергей Лузан, на начало страницы">СЛ</a>
       <nav class="nav" aria-label="Основная навигация" data-nav></nav>
-      <a class="header-action" data-link="telegram" target="_blank" rel="noopener">Telegram</a>
+      <a class="header-action" data-link="booking" target="_blank" rel="noopener">Записаться</a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
     <main id="top">
       <section class="hero section" aria-labelledby="hero-title">
+        <div class="hero-copy reveal">
+          <p class="eyebrow" data-text="city"></p>
+          <p class="hero-name" data-text="name"></p>
+          <h1 id="hero-title" data-text="heroTitle"></h1>
+          <p class="role" data-text="role"></p>
+          <p class="tagline" data-text="tagline"></p>
+          <p class="intro" data-text="intro"></p>
+          <div class="actions">
+            <a class="button button-dark" data-link="booking" target="_blank" rel="noopener">Записаться на консультацию</a>
+            <a class="button button-light" data-link="telegramChannel" target="_blank" rel="noopener">Telegram-канал</a>
+          </div>
+        </div>
         <div class="hero-media reveal">
           <picture>
             <source srcset="assets/images/sergey-hero-mobile.webp" media="(max-width: 720px)">
             <img src="assets/images/sergey-hero.webp" alt="Сергей Лузан улыбается" width="1600" height="2400" fetchpriority="high" decoding="async">
           </picture>
         </div>
-        <div class="hero-copy reveal">
-          <p class="eyebrow" data-text="city"></p>
-          <h1 id="hero-title" data-text="heroTitle"></h1>
-          <p class="role" data-text="role"></p>
-          <p class="tagline" data-text="tagline"></p>
-          <p class="intro" data-text="intro"></p>
-          <div class="actions">
-            <a class="button button-dark" data-link="telegram" target="_blank" rel="noopener">Записаться в Telegram</a>
-            <a class="button button-light" href="#price">Смотреть стоимость</a>
-          </div>
+      </section>
+
+      <section class="manifest section reveal" aria-labelledby="manifest-title">
+        <div class="manifest-card">
+          <p class="eyebrow">Манифест</p>
+          <h2 id="manifest-title" data-manifest-title></h2>
+          <div data-manifest-text></div>
         </div>
       </section>
 
@@ -106,15 +120,10 @@
         <div class="stats-grid" data-stats></div>
       </section>
 
-      <section class="quote-section section reveal" aria-label="Цитата">
-        <p>Иногда человеку нужно<br>не решение.</p>
-        <p>Ему нужно место,<br>где можно наконец быть собой.</p>
-      </section>
-
       <section class="section work" id="work" aria-labelledby="work-title">
         <div class="section-heading reveal">
           <p class="eyebrow">Запросы</p>
-          <h2 id="work-title">С чем я работаю</h2>
+          <h2 id="work-title">С чем можно прийти</h2>
           <p class="section-lead" data-work-intro></p>
         </div>
         <div class="work-grid" data-work></div>
@@ -124,52 +133,78 @@
         </div>
       </section>
 
-      <section class="section about" id="about" aria-labelledby="about-title">
-        <div class="about-copy reveal">
-          <p class="eyebrow">Обо мне</p>
-          <h2 id="about-title">Человек, с которым можно говорить честно.</h2>
-          <p class="lead" data-about-lead></p>
-          <div data-about-paragraphs></div>
-          <div class="fact-row" data-about-facts></div>
-          <a class="text-link" data-link="education" target="_blank" rel="noopener">Образование и документы</a>
+      <section class="quote-band section reveal" aria-labelledby="quote-title">
+        <div>
+          <p class="eyebrow">Telegram</p>
+          <blockquote id="quote-title" data-featured-quote></blockquote>
+          <p data-featured-note></p>
         </div>
-        <div class="about-image reveal">
-          <img src="assets/images/sergey-about.webp" alt="Сергей Лузан идет по аллее" width="1500" height="2250" loading="lazy" decoding="async">
+        <a class="button button-dark" data-link="telegramChannel" target="_blank" rel="noopener">Читать Telegram</a>
+      </section>
+
+      <section class="section values" id="values" aria-labelledby="values-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Подход</p>
+          <h2 id="values-title">Что важно для меня в терапии</h2>
         </div>
+        <div class="value-grid" data-values></div>
+      </section>
+
+      <section class="section approach" aria-labelledby="approach-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Инструменты</p>
+          <h2 id="approach-title">Подходы в работе</h2>
+        </div>
+        <div class="approach-grid" data-approach></div>
       </section>
 
       <section class="section process" id="process" aria-labelledby="process-title">
         <div class="section-heading reveal">
-          <p class="eyebrow">Формат</p>
-          <h2 id="process-title">Как проходят встречи</h2>
+          <p class="eyebrow">Встречи</p>
+          <h2 id="process-title">Как будут проходить наши встречи</h2>
         </div>
         <div class="timeline" data-process></div>
         <div class="meeting-facts reveal" data-meeting-facts></div>
       </section>
 
-      <section class="section approach" aria-labelledby="approach-title">
-        <div class="approach-panel reveal">
-          <p class="eyebrow">Подход</p>
-          <h2 id="approach-title">Бережно, прямо и без готовых советов.</h2>
-          <div class="approach-list" data-approach></div>
-        </div>
-      </section>
-
       <section class="section price" id="price" aria-labelledby="price-title">
         <div class="section-heading reveal">
           <p class="eyebrow">Стоимость</p>
-          <h2 id="price-title">Простые условия до начала работы</h2>
-          <p class="section-lead">Стоимость и форматы указаны до записи, чтобы можно было спокойно выбрать подходящий вариант.</p>
+          <h2 id="price-title">Стоимость и форматы</h2>
+          <p class="section-lead">Все условия видны до записи. Если вы из другой страны, способ оплаты можно спокойно обсудить.</p>
         </div>
         <div class="price-grid" data-prices></div>
       </section>
 
-      <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Отзывы</p>
-          <h2 id="reviews-title">Без показательной уязвимости</h2>
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="about-image reveal">
+          <img src="assets/images/sergey-about.webp" alt="Сергей Лузан идет по аллее" width="1500" height="2250" loading="lazy" decoding="async">
         </div>
-        <div class="reviews-grid reveal" data-reviews></div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">Обо мне</p>
+          <h2 id="about-title">Привет, я Сергей.</h2>
+          <p class="lead" data-about-lead></p>
+          <div data-about-paragraphs></div>
+          <div class="fact-row" data-about-facts></div>
+          <a class="text-link" data-link="education" target="_blank" rel="noopener">Образование и документы</a>
+        </div>
+      </section>
+
+      <section class="section quotes" id="quotes" aria-labelledby="quotes-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Цитаты</p>
+          <h2 id="quotes-title">Фрагменты живого голоса</h2>
+          <p class="section-lead">Короткие фразы из Telegram-канала: про стыд, злость, выживание, терапию и попытку говорить честно.</p>
+        </div>
+        <div class="quotes-grid" data-quotes></div>
+      </section>
+
+      <section class="section confidentiality" aria-labelledby="confidentiality-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Без показательной уязвимости</p>
+          <h2 id="confidentiality-title">Терапия остается конфиденциальным пространством</h2>
+        </div>
+        <div class="confidentiality-grid" data-confidentiality></div>
       </section>
 
       <section class="section faq" id="faq" aria-labelledby="faq-title">
@@ -181,23 +216,18 @@
       </section>
 
       <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Контакты</p>
+          <h2 id="contact-title" data-contact-title></h2>
+          <p data-contact-text></p>
+          <div class="contact-actions">
+            <a class="button button-dark" data-link="booking" target="_blank" rel="noopener">Записаться</a>
+            <a class="button button-light" data-link="telegramChannel" target="_blank" rel="noopener">Telegram</a>
+            <a class="button button-light" data-link="instagram" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
         <div class="contact-image reveal">
           <img src="assets/images/sergey-contact.webp" alt="Портрет Сергея Лузана" width="1500" height="2000" loading="lazy" decoding="async">
-        </div>
-        <div class="contact-copy reveal">
-          <p class="eyebrow">Запись</p>
-          <h2 id="contact-title">Можно начать с одного сообщения.</h2>
-          <p>Если вам откликается мой подход, напишите в Telegram или оставьте заявку. На первой встрече мы спокойно посмотрим, подходит ли вам этот формат.</p>
-          <div class="contact-actions">
-            <a class="button button-dark" data-link="telegram" target="_blank" rel="noopener">Записаться в Telegram</a>
-            <a class="button button-light" href="mailto:9528291099@mail.com">Почта</a>
-          </div>
-          <ul class="contact-list">
-            <li><a data-link="telegram" target="_blank" rel="noopener">Telegram</a></li>
-            <li><a data-link="taplink" target="_blank" rel="noopener">Taplink</a></li>
-            <li><a data-link="telegramChannel" target="_blank" rel="noopener">Telegram-канал</a></li>
-            <li><a data-link="instagram" target="_blank" rel="noopener">Instagram</a></li>
-          </ul>
         </div>
       </section>
 
@@ -219,12 +249,12 @@
       <div>
         <a data-link="offer" target="_blank" rel="noopener">Оферта</a>
         <a data-link="privacy">Политика</a>
-        <a data-link="taplink" target="_blank" rel="noopener">Taplink</a>
-        <a data-link="telegram" target="_blank" rel="noopener">Telegram</a>
+        <a data-link="telegramChannel" target="_blank" rel="noopener">Telegram</a>
+        <a data-link="instagram" target="_blank" rel="noopener">Instagram</a>
       </div>
     </footer>
 
-    <a class="floating-action" data-link="telegram" target="_blank" rel="noopener" aria-label="Записаться в Telegram">Записаться</a>
+    <a class="floating-action" data-link="booking" target="_blank" rel="noopener" aria-label="Записаться">Записаться</a>
 
     <script src="content.js"></script>
     <script src="app.js"></script>

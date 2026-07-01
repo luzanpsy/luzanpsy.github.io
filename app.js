@@ -3,10 +3,11 @@ const content = window.siteContent;
 const qs = (selector, scope = document) => scope.querySelector(selector);
 const qsa = (selector, scope = document) => [...scope.querySelectorAll(selector)];
 
-function setText() {
+function setTextAndLinks() {
   qsa("[data-text]").forEach((node) => {
     node.textContent = content.person[node.dataset.text] || "";
   });
+
   qsa("[data-link]").forEach((node) => {
     const href = content.links[node.dataset.link];
     if (href) node.href = href;
@@ -15,33 +16,14 @@ function setText() {
 
 function renderNavigation() {
   const nav = qs("[data-nav]");
-  const hasStats = content.stats?.some((item) => Number.isFinite(getStatValue(item)));
   nav.innerHTML = content.navigation
-    .filter(([id]) => id !== "stats" || hasStats)
     .map(([id, label]) => `<a href="#${id}" data-section-link="${id}">${label}</a>`)
     .join("");
 }
 
-function renderCards() {
-  qs("[data-work-intro]").textContent = content.workIntro;
-  qs("[data-work]").innerHTML = content.workWith.map((item) => `<article class="work-card reveal">${item}</article>`).join("");
-  qs("[data-not-for-me]").innerHTML = content.notForMe.map((item) => `<li>${item}</li>`).join("");
-
-  qs("[data-prices]").innerHTML = content.prices
-    .map(
-      ([title, price, note]) => `
-        <article class="price-card reveal">
-          <h3>${title}</h3>
-          <p>${note}</p>
-          <strong>${price}</strong>
-          <a class="text-link" href="${content.links.booking}" target="_blank" rel="noopener">Записаться</a>
-        </article>`
-    )
-    .join("");
-
-  qs("[data-reviews]").innerHTML = content.reviewNotes
-    .map((text) => `<article class="review-card"><p>${text}</p></article>`)
-    .join("");
+function renderManifest() {
+  qs("[data-manifest-title]").textContent = content.manifest.title;
+  qs("[data-manifest-text]").innerHTML = content.manifest.paragraphs.map((text) => `<p>${text}</p>`).join("");
 }
 
 function statIcon(type) {
@@ -53,9 +35,7 @@ function statIcon(type) {
     therapy:
       '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-8-4.8-8-11.2A4.8 4.8 0 0 1 12 6a4.8 4.8 0 0 1 8 3.8C20 16.2 12 21 12 21Z"/><path d="M12 6v15"/></svg>',
     study:
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3Z"/><path d="M8 7h8"/></svg>',
-    practice:
-      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18"/><path d="M5 8h14"/><path d="M7 8l-4 7h8L7 8Z"/><path d="M17 8l-4 7h8l-4-7Z"/></svg>'
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5v-13A2.5 2.5 0 0 1 6.5 3Z"/><path d="M8 7h8"/></svg>'
   };
   return icons[type] || icons.sessions;
 }
@@ -69,8 +49,7 @@ function daysSince(dateString) {
   const start = parseLocalDate(dateString);
   const now = new Date();
   const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-  const millisecondsInDay = 24 * 60 * 60 * 1000;
-  return Math.max(0, Math.floor((today - start) / millisecondsInDay));
+  return Math.max(0, Math.floor((today - start) / 86400000));
 }
 
 function monthsSince(dateString) {
@@ -107,6 +86,7 @@ function renderStats() {
   const realStats = content.stats
     .map((item) => ({ ...item, computedValue: getStatValue(item) }))
     .filter((item) => Number.isFinite(item.computedValue));
+
   if (!realStats.length) {
     statsSection.hidden = true;
     return;
@@ -114,19 +94,73 @@ function renderStats() {
 
   statsSection.hidden = false;
   qs("[data-stats]").innerHTML = realStats
-    .map((item) => {
-      const hasValue = Number.isFinite(item.computedValue);
-      const display = hasValue ? `${item.computedValue}${item.suffix || ""}` : "—";
-      const valueAttr = hasValue ? ` data-count="${item.computedValue}" data-suffix="${item.suffix || ""}"` : "";
-      return `
+    .map(
+      (item) => `
         <article class="stat-card reveal">
           <span class="stat-icon">${statIcon(item.icon)}</span>
-          <strong class="stat-value"${valueAttr}>${display}${hasValue ? "" : ""}</strong>
+          <strong class="stat-value" data-count="${item.computedValue}" data-suffix="${item.suffix || ""}">${item.computedValue}${item.suffix || ""}</strong>
           <span class="stat-label">${item.label}</span>
           <p>${item.note}</p>
-        </article>`;
-    })
+        </article>`
+    )
     .join("");
+}
+
+function renderCards() {
+  qs("[data-work-intro]").textContent = content.workIntro;
+  qs("[data-work]").innerHTML = content.workWith
+    .map(
+      ([title, text]) => `
+        <article class="work-card reveal">
+          <h3>${title}</h3>
+          <p>${text}</p>
+        </article>`
+    )
+    .join("");
+
+  qs("[data-not-for-me]").innerHTML = content.notForMe.map((item) => `<li>${item}</li>`).join("");
+
+  qs("[data-values]").innerHTML = content.values
+    .map(
+      ([title, text]) => `
+        <article class="value-card reveal">
+          <h3>${title}</h3>
+          <p>${text}</p>
+        </article>`
+    )
+    .join("");
+
+  qs("[data-approach]").innerHTML = content.approachCards
+    .map(
+      ([title, text]) => `
+        <article class="approach-card reveal">
+          <h3>${title}</h3>
+          <p>${text}</p>
+        </article>`
+    )
+    .join("");
+
+  qs("[data-prices]").innerHTML = content.prices
+    .map(
+      ([title, duration, price, note]) => `
+        <article class="price-card reveal">
+          <span>${duration}</span>
+          <h3>${title}</h3>
+          <p>${note}</p>
+          <strong>${price}</strong>
+          <a class="text-link" href="${content.links.booking}" target="_blank" rel="noopener">Записаться</a>
+        </article>`
+    )
+    .join("");
+
+  qs("[data-confidentiality]").innerHTML = content.confidentiality
+    .map((text) => `<article class="quiet-card reveal"><p>${text}</p></article>`)
+    .join("");
+}
+
+function renderFeaturedQuote() {
+  qs("[data-featured-quote]").textContent = `«${content.featuredQuote.text}»`;
+  qs("[data-featured-note]").textContent = content.featuredQuote.note;
 }
 
 function renderAbout() {
@@ -135,7 +169,7 @@ function renderAbout() {
   qs("[data-about-facts]").innerHTML = content.about.facts.map((item) => `<span>${item}</span>`).join("");
 }
 
-function renderProcessAndApproach() {
+function renderProcess() {
   qs("[data-process]").innerHTML = content.process
     .map(
       ([num, title, text]) => `
@@ -156,8 +190,18 @@ function renderProcessAndApproach() {
         </article>`
     )
     .join("");
+}
 
-  qs("[data-approach]").innerHTML = content.approach.map((item) => `<span>${item}</span>`).join("");
+function renderQuotes() {
+  qs("[data-quotes]").innerHTML = content.quotes
+    .map(
+      ({ text, source }) => `
+        <article class="quote-card reveal">
+          <blockquote>«${text}»</blockquote>
+          <p>${source}</p>
+        </article>`
+    )
+    .join("");
 }
 
 function renderFaq() {
@@ -185,12 +229,17 @@ function renderFaq() {
   });
 }
 
+function renderContact() {
+  qs("[data-contact-title]").textContent = content.contact.title;
+  qs("[data-contact-text]").textContent = content.contact.text;
+}
+
 function bindScrollEffects() {
   const header = qs("[data-header]");
   const floatingAction = qs(".floating-action");
   const updateHeader = () => {
     header.classList.toggle("is-scrolled", window.scrollY > 16);
-    floatingAction.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.62);
+    floatingAction.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.72);
   };
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
@@ -198,30 +247,14 @@ function bindScrollEffects() {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
       });
     },
-    { threshold: 0.16, rootMargin: "0px 0px -40px" }
+    { threshold: 0.12, rootMargin: "0px 0px -36px" }
   );
   qsa(".reveal").forEach((node) => revealObserver.observe(node));
-
-  const countObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const valueNode = entry.target;
-        const target = Number(valueNode.dataset.count);
-        const suffix = valueNode.dataset.suffix || "";
-        valueNode.textContent = `${target}${suffix}`;
-        countObserver.unobserve(valueNode);
-      });
-    },
-    { threshold: 0.6 }
-  );
-  qsa("[data-count]").forEach((node) => countObserver.observe(node));
 
   const navLinks = qsa("[data-section-link]");
   const sectionObserver = new IntersectionObserver(
@@ -231,7 +264,7 @@ function bindScrollEffects() {
         navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.sectionLink === entry.target.id));
       });
     },
-    { threshold: 0.35 }
+    { threshold: 0.28 }
   );
   navLinks.forEach((link) => {
     const section = qs(`#${link.dataset.sectionLink}`);
@@ -239,13 +272,18 @@ function bindScrollEffects() {
   });
 }
 
-function bindSlider() {
-  const track = qs("[data-reviews]");
-  qsa("[data-slide]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const direction = button.dataset.slide === "next" ? 1 : -1;
-      track.scrollBy({ left: direction * track.clientWidth * 0.8, behavior: "smooth" });
-    });
+function bindMenu() {
+  const button = qs("[data-menu-toggle]");
+  const nav = qs("[data-nav]");
+  button.addEventListener("click", () => {
+    const isOpen = document.body.classList.toggle("menu-open");
+    button.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  nav.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
+    document.body.classList.remove("menu-open");
+    button.setAttribute("aria-expanded", "false");
   });
 }
 
@@ -254,13 +292,17 @@ function bindFormEmbed() {
   if (frame) frame.src = content.links.bookingEmbed;
 }
 
-setText();
+setTextAndLinks();
 renderNavigation();
-renderCards();
+renderManifest();
 renderStats();
+renderCards();
+renderFeaturedQuote();
 renderAbout();
-renderProcessAndApproach();
+renderProcess();
+renderQuotes();
 renderFaq();
+renderContact();
 bindScrollEffects();
-bindSlider();
+bindMenu();
 bindFormEmbed();
