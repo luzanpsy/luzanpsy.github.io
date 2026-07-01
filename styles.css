@@ -374,6 +374,10 @@ p {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.value-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .work-card,
 .value-card,
 .approach-card,
