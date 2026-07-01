@@ -42,11 +42,78 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   opacity: 0.42;
   background-image: linear-gradient(rgba(31, 31, 31, 0.035) 1px, transparent 1px);
   background-size: 100% 18px;
+}
+
+body > *:not(.ambient-quotes) {
+  position: relative;
+  z-index: 1;
+}
+
+.ambient-quotes {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  color: rgba(138, 90, 68, 0.12);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(36px, 5vw, 92px);
+  line-height: 0.92;
+  letter-spacing: 0;
+}
+
+.ambient-quotes span {
+  position: absolute;
+  display: block;
+  max-width: min(760px, 48vw);
+  transform: translate3d(0, var(--ambient-shift, 0px), 0);
+  transition: transform 120ms linear;
+  will-change: transform;
+}
+
+.ambient-quotes span:nth-child(1) {
+  top: 10vh;
+  left: -3vw;
+}
+
+.ambient-quotes span:nth-child(2) {
+  top: 32vh;
+  right: -5vw;
+}
+
+.ambient-quotes span:nth-child(3) {
+  top: 62vh;
+  left: 8vw;
+}
+
+.ambient-quotes span:nth-child(4) {
+  top: 88vh;
+  right: 4vw;
+}
+
+.ambient-quotes span:nth-child(5) {
+  top: 120vh;
+  left: 0;
+}
+
+.ambient-quotes span:nth-child(6) {
+  top: 150vh;
+  right: -4vw;
+}
+
+.ambient-quotes span:nth-child(7) {
+  top: 184vh;
+  left: 12vw;
+}
+
+.ambient-quotes span:nth-child(8) {
+  top: 220vh;
+  right: 10vw;
 }
 
 a {
@@ -196,16 +263,17 @@ textarea {
 .section {
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
-  padding: clamp(72px, 10vw, 132px) 0;
+  padding: clamp(42px, 5vw, 64px) 0;
 }
 
 .hero {
-  min-height: 100svh;
+  min-height: min(92svh, 860px);
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
   align-items: center;
   gap: clamp(34px, 7vw, 92px);
   padding-top: calc(var(--header) + 34px);
+  padding-bottom: clamp(38px, 5vw, 68px);
 }
 
 .hero-copy {
@@ -460,8 +528,8 @@ p {
   grid-template-columns: 1fr auto;
   align-items: end;
   gap: 24px;
-  padding-top: clamp(56px, 9vw, 112px);
-  padding-bottom: clamp(56px, 9vw, 112px);
+  padding-top: clamp(42px, 6vw, 76px);
+  padding-bottom: clamp(42px, 6vw, 76px);
 }
 
 .quote-band blockquote {
@@ -1009,6 +1077,10 @@ p {
   .section {
     width: min(100% - 28px, var(--max));
     padding: 62px 0;
+  }
+
+  .ambient-quotes {
+    display: none;
   }
 
   h1 {
