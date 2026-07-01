@@ -681,8 +681,8 @@ p {
 
 .quote-card blockquote {
   color: var(--ink-soft);
-  font-size: clamp(30px, 3vw, 44px);
-  line-height: 1.04;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1.18;
 }
 
 .quote-card p {
