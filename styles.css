@@ -304,6 +304,12 @@ textarea {
   font-weight: 800;
 }
 
+.brand img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
 .nav {
   display: flex;
   justify-content: center;
