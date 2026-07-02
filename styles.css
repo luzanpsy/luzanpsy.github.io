@@ -1218,7 +1218,23 @@ p {
   }
 
   .ambient-quotes {
-    display: none;
+    display: block;
+    color: rgba(138, 90, 68, 0.075);
+    font-size: clamp(34px, 13vw, 58px);
+    line-height: 0.98;
+  }
+
+  .ambient-quotes span,
+  .ambient-quotes span:nth-child(n + 25) {
+    max-width: 86vw;
+  }
+
+  .ambient-quotes span:nth-child(even) {
+    right: -18vw;
+  }
+
+  .ambient-quotes span:nth-child(odd) {
+    left: -14vw;
   }
 
   h1 {
