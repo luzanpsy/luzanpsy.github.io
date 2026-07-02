@@ -262,10 +262,17 @@ function renderContact() {
 function bindScrollEffects() {
   const header = qs("[data-header]");
   const ambientQuotes = qs("[data-ambient-quotes]");
+  const scrollPortrait = qs("[data-scroll-portrait]");
   const updateHeader = () => {
     header.classList.toggle("is-scrolled", window.scrollY > 16);
     if (ambientQuotes) {
       ambientQuotes.style.setProperty("--ambient-shift", `${Math.round(window.scrollY * -0.38)}px`);
+    }
+    if (scrollPortrait) {
+      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const scrollRatio = window.scrollY / maxScroll;
+      const portraitProgress = Math.min(1, Math.max(0, (scrollRatio - 0.28) / 0.58));
+      scrollPortrait.style.setProperty("--portrait-progress", portraitProgress.toFixed(3));
     }
   };
   updateHeader();

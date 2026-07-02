@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560" role="img" aria-labelledby="title">
+  <title id="title">Силуэт Зигмунда Фрейда</title>
+  <g fill="none" stroke="#8a5a44" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M208 48c-56 0-104 42-112 102-8 58 11 118 45 154 8 9 18 16 28 21" stroke-width="10"/>
+    <path d="M214 48c66 6 105 54 110 120 4 54-17 112-52 143-8 7-18 13-28 17" stroke-width="10"/>
+    <path d="M143 156c16-19 39-29 67-30 34-2 61 11 78 32" stroke-width="8"/>
+    <path d="M156 211c22-12 49-12 72 0" stroke-width="7"/>
+    <path d="M258 212c20-10 42-9 62 2" stroke-width="7"/>
+    <path d="M167 229c18 8 37 8 55 0" stroke-width="6"/>
+    <path d="M264 231c16 8 34 8 51 0" stroke-width="6"/>
+    <path d="M232 228c-5 32-8 58-24 75 18 7 36 7 54-1" stroke-width="8"/>
+    <path d="M176 347c34 18 75 19 112 0" stroke-width="9"/>
+    <path d="M152 371c22 58 51 90 88 90 35 0 62-31 82-88" stroke-width="10"/>
+    <path d="M103 176c-18 12-24 32-20 53 3 17 13 31 29 39" stroke-width="8"/>
+    <path d="M323 178c20 12 27 33 22 55-4 17-15 31-31 38" stroke-width="8"/>
+    <path d="M91 167c8-69 49-115 112-128 31-6 68-1 96 17 36 23 58 61 63 110" stroke-width="14"/>
+    <path d="M114 128c-31 18-52 49-59 91" stroke-width="12"/>
+    <path d="M305 101c35 28 54 70 51 123" stroke-width="12"/>
+    <path d="M144 426c-34 14-64 39-87 76" stroke-width="13"/>
+    <path d="M306 426c39 15 72 43 98 82" stroke-width="13"/>
+    <path d="M158 462c39 39 105 42 151 1" stroke-width="8"/>
+    <path d="M112 521c72 24 162 25 245 0" stroke-width="10"/>
+  </g>
+  <g fill="#8a5a44" opacity=".2">
+    <path d="M118 109c27-60 93-92 151-70 49 18 82 70 84 135-26-50-63-83-112-96-41-10-82 0-123 31Z"/>
+    <path d="M130 380c23 75 61 113 111 114 48 0 84-39 108-116 24 34 37 76 40 126-85 30-186 30-287 0 4-51 13-92 28-124Z"/>
+  </g>
+</svg>
