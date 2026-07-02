@@ -78,14 +78,14 @@ body > *:not(.ambient-quotes):not(.scroll-portrait):not(.site-header) {
 
 .scroll-portrait {
   position: fixed;
-  top: 18vh;
-  left: max(-120px, -7vw);
+  top: 20vh;
+  left: max(-150px, -8vw);
   z-index: 0;
-  width: clamp(190px, 24vw, 380px);
+  width: clamp(260px, 34vw, 520px);
   pointer-events: none;
-  opacity: calc(var(--portrait-progress, 0) * 0.26);
-  transform: translate3d(calc(-34px + (var(--portrait-progress, 0) * 44px)), 0, 0);
-  filter: blur(calc(14px - (var(--portrait-progress, 0) * 13px)));
+  opacity: calc(var(--portrait-progress, 0) * 0.34);
+  transform: translate3d(calc(-46px + (var(--portrait-progress, 0) * 62px)), 0, 0);
+  filter: blur(calc(12px - (var(--portrait-progress, 0) * 11px)));
   mix-blend-mode: multiply;
   transition: opacity 140ms linear, filter 140ms linear, transform 140ms linear;
 }
@@ -1280,11 +1280,11 @@ p {
   }
 
   .scroll-portrait {
-    top: 22vh;
-    left: -116px;
-    width: 220px;
-    opacity: calc(var(--portrait-progress, 0) * 0.16);
-    filter: blur(calc(16px - (var(--portrait-progress, 0) * 14px)));
+    top: 24vh;
+    left: -150px;
+    width: 290px;
+    opacity: calc(var(--portrait-progress, 0) * 0.22);
+    filter: blur(calc(14px - (var(--portrait-progress, 0) * 12px)));
   }
 
   .ambient-quotes span,

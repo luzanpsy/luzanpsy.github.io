@@ -1,28 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560" role="img" aria-labelledby="title">
-  <title id="title">Силуэт Зигмунда Фрейда</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420" role="img" aria-labelledby="title">
+  <title id="title">Метафорический силуэт Фрейда</title>
+  <defs>
+    <pattern id="thought-lines" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M-8 22c18-18 38-18 56 0s38 18 56 0" fill="none" stroke="#8a5a44" stroke-width="2.6" opacity=".55"/>
+      <path d="M-8 42c18-18 38-18 56 0s38 18 56 0" fill="none" stroke="#8a5a44" stroke-width="2.2" opacity=".42"/>
+    </pattern>
+  </defs>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M205 198c-14-27-10-58 11-83 24-29 65-43 118-37 74 8 121 58 125 126 4 73-41 126-120 137-56 8-101-8-132-48" stroke="#2b2724" stroke-width="13"/>
+    <path d="M270 86c-36 29-50 74-43 125 7 54 40 99 83 121" stroke="#2b2724" stroke-width="10"/>
+    <path d="M327 84c-12 54-9 106 10 158 11 31 27 60 50 88" stroke="#2b2724" stroke-width="8" opacity=".85"/>
+    <path d="M244 205c-29-4-51 4-67 25" stroke="#2b2724" stroke-width="9"/>
+    <path d="M181 236c20 11 41 11 62 0" stroke="#2b2724" stroke-width="7"/>
+    <path d="M241 230c-8 25-24 44-46 56" stroke="#2b2724" stroke-width="8"/>
+    <path d="M186 288c-11 21-26 37-45 48" stroke="#2b2724" stroke-width="9"/>
+    <path d="M335 340c57 6 111 25 164 58" stroke="#2b2724" stroke-width="30"/>
+    <path d="M241 337c-42 8-81 26-117 54" stroke="#2b2724" stroke-width="18"/>
+  </g>
+  <path d="M279 89c-33 27-45 69-38 117 8 58 46 106 96 130 76-12 117-62 113-131-4-63-48-110-118-118-20-2-37-1-53 2Z" fill="url(#thought-lines)" opacity=".55"/>
   <g fill="none" stroke="#8a5a44" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M208 48c-56 0-104 42-112 102-8 58 11 118 45 154 8 9 18 16 28 21" stroke-width="10"/>
-    <path d="M214 48c66 6 105 54 110 120 4 54-17 112-52 143-8 7-18 13-28 17" stroke-width="10"/>
-    <path d="M143 156c16-19 39-29 67-30 34-2 61 11 78 32" stroke-width="8"/>
-    <path d="M156 211c22-12 49-12 72 0" stroke-width="7"/>
-    <path d="M258 212c20-10 42-9 62 2" stroke-width="7"/>
-    <path d="M167 229c18 8 37 8 55 0" stroke-width="6"/>
-    <path d="M264 231c16 8 34 8 51 0" stroke-width="6"/>
-    <path d="M232 228c-5 32-8 58-24 75 18 7 36 7 54-1" stroke-width="8"/>
-    <path d="M176 347c34 18 75 19 112 0" stroke-width="9"/>
-    <path d="M152 371c22 58 51 90 88 90 35 0 62-31 82-88" stroke-width="10"/>
-    <path d="M103 176c-18 12-24 32-20 53 3 17 13 31 29 39" stroke-width="8"/>
-    <path d="M323 178c20 12 27 33 22 55-4 17-15 31-31 38" stroke-width="8"/>
-    <path d="M91 167c8-69 49-115 112-128 31-6 68-1 96 17 36 23 58 61 63 110" stroke-width="14"/>
-    <path d="M114 128c-31 18-52 49-59 91" stroke-width="12"/>
-    <path d="M305 101c35 28 54 70 51 123" stroke-width="12"/>
-    <path d="M144 426c-34 14-64 39-87 76" stroke-width="13"/>
-    <path d="M306 426c39 15 72 43 98 82" stroke-width="13"/>
-    <path d="M158 462c39 39 105 42 151 1" stroke-width="8"/>
-    <path d="M112 521c72 24 162 25 245 0" stroke-width="10"/>
+    <path d="M141 214c28-19 62-19 101 0" stroke-width="5"/>
+    <path d="M121 217c10 20 25 30 45 29 22-1 37-13 45-35" stroke-width="5"/>
+    <path d="M208 213c11 20 27 29 49 27 20-2 34-14 41-35" stroke-width="5"/>
+    <path d="M297 205c20-9 40-10 59-4" stroke-width="4"/>
   </g>
-  <g fill="#8a5a44" opacity=".2">
-    <path d="M118 109c27-60 93-92 151-70 49 18 82 70 84 135-26-50-63-83-112-96-41-10-82 0-123 31Z"/>
-    <path d="M130 380c23 75 61 113 111 114 48 0 84-39 108-116 24 34 37 76 40 126-85 30-186 30-287 0 4-51 13-92 28-124Z"/>
+  <path d="M103 218c18-10 29-8 35 6 5 12 1 26-13 41" fill="none" stroke="#2b2724" stroke-width="8" stroke-linecap="round"/>
+  <path d="M134 272c-14 17-29 24-46 21" fill="none" stroke="#2b2724" stroke-width="7" stroke-linecap="round"/>
+  <path d="M107 298c12 25 33 39 63 41" fill="none" stroke="#2b2724" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#2b2724" opacity=".88">
+    <path d="M370 37h20l10 47h-39l9-47Z"/>
+    <path d="M363 84h42l-8 46h-28l-6-46Z"/>
+    <circle cx="380" cy="24" r="14"/>
   </g>
+  <g fill="none" stroke="#2b2724" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M380 123c-25 19-58 26-99 21" stroke-width="5"/>
+    <path d="M381 123c31 21 56 51 74 90" stroke-width="5"/>
+    <path d="M360 52c-55 8-98 35-129 80-27 39-41 88-44 148" stroke-width="4" opacity=".75"/>
+  </g>
+  <path d="M169 219h129" fill="none" stroke="#a64d36" stroke-width="6" stroke-linecap="round"/>
 </svg>
