@@ -154,7 +154,16 @@ function renderCards() {
     .join("");
 
   qs("[data-confidentiality]").innerHTML = content.confidentiality
-    .map((text) => `<article class="quiet-card reveal"><p>${text}</p></article>`)
+    .map((text, index) => {
+      if (index === 1) {
+        return `
+          <a class="quiet-card quiet-card-link reveal" href="${content.links.instagram}" target="_blank" rel="noopener" aria-label="Открыть Instagram Сергея Лузана">
+            <p>${text}</p>
+          </a>`;
+      }
+
+      return `<article class="quiet-card reveal"><p>${text}</p></article>`;
+    })
     .join("");
 }
 
