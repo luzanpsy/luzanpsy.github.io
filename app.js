@@ -162,6 +162,13 @@ function renderCards() {
           </a>`;
       }
 
+      if (index === 2) {
+        return `
+          <a class="quiet-card quiet-card-link reveal" href="${content.links.telegramChannel}" target="_blank" rel="noopener" aria-label="Открыть Telegram-канал Сергея Лузана">
+            <p>${text}</p>
+          </a>`;
+      }
+
       return `<article class="quiet-card reveal"><p>${text}</p></article>`;
     })
     .join("");
