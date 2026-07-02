@@ -49,7 +49,7 @@ body::before {
   background-size: 100% 18px;
 }
 
-body > *:not(.ambient-quotes) {
+body > *:not(.ambient-quotes):not(.site-header):not(.floating-action) {
   position: relative;
   z-index: 1;
 }
