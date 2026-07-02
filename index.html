@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/images/sergey-hero.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260703-position-label">
+    <link rel="stylesheet" href="styles.css?v=20260703-legal-footer">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -290,18 +290,25 @@
     </main>
 
     <footer class="footer">
-      <p>© Сергей Лузан</p>
-      <div>
-        <a data-link="offer" target="_blank" rel="noopener">Оферта</a>
-        <a data-link="privacy">Политика</a>
-        <a data-link="telegramChannel" target="_blank" rel="noopener">Telegram</a>
-        <a data-link="instagram" target="_blank" rel="noopener">Instagram</a>
+      <div class="footer-main">
+        <p>© Сергей Лузан</p>
+        <nav aria-label="Документы и социальные сети">
+          <a data-link="offer" target="_blank" rel="noopener">Оферта</a>
+          <a data-link="privacy">Политика</a>
+          <a data-link="telegramChannel" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://www.instagram.com/se_live_psychology" target="_blank" rel="noopener">Instagram*</a>
+        </nav>
+      </div>
+      <div class="footer-disclaimer">
+        <p>Услуги носят консультативный характер, не являются медицинской деятельностью и не заменяют обращения к врачу.</p>
+        <p>Сайт предназначен для лиц старше 18 лет (18+).</p>
+        <p>* Instagram принадлежит компании Meta Platforms Inc., деятельность которой признана экстремистской и запрещена в РФ.</p>
       </div>
     </footer>
 
     <a class="floating-action" data-link="booking" target="_blank" rel="noopener" aria-label="Записаться">Записаться</a>
 
-    <script src="content.js?v=20260703-position-label"></script>
-    <script src="app.js?v=20260703-position-label"></script>
+    <script src="content.js?v=20260703-legal-footer"></script>
+    <script src="app.js?v=20260703-legal-footer"></script>
   </body>
 </html>

@@ -1038,18 +1038,36 @@ p {
 }
 
 .footer {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   gap: 20px;
   padding: 32px clamp(18px, 4vw, 48px);
   border-top: 1px solid var(--line);
   color: var(--muted);
 }
 
-.footer div {
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-main nav {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
+}
+
+.footer-disclaimer {
+  display: grid;
+  gap: 6px;
+  max-width: 980px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(111, 104, 96, 0.82);
+}
+
+.footer-disclaimer p {
+  margin: 0;
 }
 
 .floating-action {
