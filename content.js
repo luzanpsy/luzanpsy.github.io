@@ -53,7 +53,7 @@ window.siteContent = {
     },
     {
       icon: "study",
-      value: { base: 830, baseDate: "2026-06-27", incrementEveryMonths: 1, incrementBy: 16 },
+      value: { base: 1640, baseDate: "2026-06-27", incrementEveryMonths: 1, incrementBy: 20 },
       suffix: "+",
       label: "часов обучения",
       note: "профессиональная подготовка"
