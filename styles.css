@@ -1051,7 +1051,7 @@ p {
   right: 22px;
   bottom: 22px;
   z-index: 40;
-  display: none;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 52px;
@@ -1062,10 +1062,6 @@ p {
   font-size: 14px;
   font-weight: 800;
   box-shadow: 0 14px 42px rgba(58, 45, 35, 0.22);
-}
-
-.floating-action.is-visible {
-  display: inline-flex;
 }
 
 .legal-page {

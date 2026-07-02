@@ -245,11 +245,9 @@ function renderContact() {
 
 function bindScrollEffects() {
   const header = qs("[data-header]");
-  const floatingAction = qs(".floating-action");
   const ambientQuotes = qs("[data-ambient-quotes]");
   const updateHeader = () => {
     header.classList.toggle("is-scrolled", window.scrollY > 16);
-    floatingAction.classList.toggle("is-visible", window.scrollY > window.innerHeight * 0.72);
     if (ambientQuotes) {
       ambientQuotes.style.setProperty("--ambient-shift", `${Math.round(window.scrollY * -0.38)}px`);
     }
