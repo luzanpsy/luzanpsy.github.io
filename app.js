@@ -26,6 +26,88 @@ function renderManifest() {
   qs("[data-manifest-text]").innerHTML = content.manifest.paragraphs.map((text) => `<p>${text}</p>`).join("");
 }
 
+function renderQuiz() {
+  const quiz = qs("[data-quiz]");
+  if (!quiz || !content.quiz?.questions?.length) return;
+
+  const answers = new Array(content.quiz.questions.length).fill(null);
+  let current = 0;
+
+  const getResultText = () => {
+    if (answers.includes(-2)) return content.quiz.resultCare;
+    const score = answers.reduce((sum, value) => sum + (Number.isFinite(value) ? value : 0), 0);
+    return score >= 5 ? content.quiz.resultStrong : content.quiz.resultSoft;
+  };
+
+  const renderStep = () => {
+    const question = content.quiz.questions[current];
+    const isLast = current === content.quiz.questions.length - 1;
+    quiz.innerHTML = `
+      <div class="quiz-progress" aria-label="Вопрос ${current + 1} из ${content.quiz.questions.length}">
+        <span style="width: ${((current + 1) / content.quiz.questions.length) * 100}%"></span>
+      </div>
+      <p class="quiz-count">Вопрос ${current + 1} / ${content.quiz.questions.length}</p>
+      <h3>${question.text}</h3>
+      <div class="quiz-options">
+        ${question.answers
+          .map(
+            ([label, value]) => `
+              <button class="quiz-option ${answers[current] === value ? "is-selected" : ""}" type="button" data-value="${value}">
+                ${label}
+              </button>`
+          )
+          .join("")}
+      </div>
+      <div class="quiz-actions">
+        <button class="button button-light" type="button" data-quiz-back ${current === 0 ? "disabled" : ""}>Назад</button>
+        <button class="button button-dark" type="button" data-quiz-next ${answers[current] === null ? "disabled" : ""}>${isLast ? "Показать результат" : "Дальше"}</button>
+      </div>`;
+
+    qsa("[data-value]", quiz).forEach((button) => {
+      button.addEventListener("click", () => {
+        answers[current] = Number(button.dataset.value);
+        renderStep();
+      });
+    });
+
+    qs("[data-quiz-back]", quiz).addEventListener("click", () => {
+      current = Math.max(0, current - 1);
+      renderStep();
+    });
+
+    qs("[data-quiz-next]", quiz).addEventListener("click", () => {
+      if (answers[current] === null) return;
+      if (isLast) {
+        renderResult();
+        return;
+      }
+      current += 1;
+      renderStep();
+    });
+  };
+
+  const renderResult = () => {
+    quiz.innerHTML = `
+      <div class="quiz-result">
+        <p class="eyebrow">Результат</p>
+        <h3>${getResultText()}</h3>
+        <p>Если откликается, заполните форму записи. На первой встрече можно спокойно проверить, насколько вам подходит мой темп, стиль и способ быть в контакте.</p>
+        <div class="quiz-actions">
+          <a class="button button-dark" href="${content.links.booking}" target="_blank" rel="noopener">Заполнить форму для записи</a>
+          <button class="button button-light" type="button" data-quiz-restart>Пройти еще раз</button>
+        </div>
+      </div>`;
+
+    qs("[data-quiz-restart]", quiz).addEventListener("click", () => {
+      answers.fill(null);
+      current = 0;
+      renderStep();
+    });
+  };
+
+  renderStep();
+}
+
 function statIcon(type) {
   const icons = {
     clients:
@@ -329,6 +411,7 @@ function bindFormEmbed() {
 setTextAndLinks();
 renderNavigation();
 renderManifest();
+renderQuiz();
 renderStats();
 renderCards();
 renderFeaturedQuote();

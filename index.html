@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/images/sergey-hero.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260703-scroll-portrait">
+    <link rel="stylesheet" href="styles.css?v=20260703-quiz-docs">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -146,6 +146,15 @@
             <img src="assets/images/sergey-hero.webp" alt="Сергей Лузан улыбается" width="1600" height="2400" fetchpriority="high" decoding="async">
           </picture>
         </div>
+      </section>
+
+      <section class="section quiz-section" id="quiz" aria-labelledby="quiz-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Мини-опрос</p>
+          <h2 id="quiz-title">Могу ли я вам помочь?</h2>
+          <p class="section-lead">Ответьте на несколько вопросов. Это не диагностика, а быстрый способ понять, с чем можно прийти на первую встречу.</p>
+        </div>
+        <div class="quiz-card reveal" data-quiz></div>
       </section>
 
       <section class="manifest section reveal" aria-labelledby="manifest-title">
@@ -299,20 +308,23 @@
       <div class="footer-main">
         <p>© Сергей Лузан</p>
         <nav aria-label="Документы и социальные сети">
-          <a data-link="offer" target="_blank" rel="noopener">Оферта</a>
-          <a data-link="privacy">Политика</a>
+          <a data-link="offer" target="_blank" rel="noopener">Договор-оферта</a>
+          <a data-link="personalDataPolicy">Политика обработки ПДн</a>
+          <a data-link="personalDataConsent">Согласие на обработку ПДн</a>
+          <a data-link="mailingConsent">Согласие на рассылку</a>
           <a data-link="telegramChannel" target="_blank" rel="noopener">Telegram</a>
           <a href="https://www.instagram.com/se_live_psychology" target="_blank" rel="noopener">Instagram*</a>
         </nav>
       </div>
       <div class="footer-disclaimer">
+        <p><a href="https://www.tbank.ru/business/contractor/legal/324237500077422/" target="_blank" rel="noopener">ИП Лузан Сергей Николаевич, ИНН 230404323019</a>.</p>
         <p>Услуги носят консультативный характер, не являются медицинской деятельностью и не заменяют обращения к врачу.</p>
         <p>Сайт предназначен для лиц старше 18 лет (18+).</p>
         <p>* Instagram принадлежит компании Meta Platforms Inc., деятельность которой признана экстремистской и запрещена в РФ.</p>
       </div>
     </footer>
 
-    <script src="content.js?v=20260703-scroll-portrait"></script>
-    <script src="app.js?v=20260703-scroll-portrait"></script>
+    <script src="content.js?v=20260703-quiz-docs"></script>
+    <script src="app.js?v=20260703-quiz-docs"></script>
   </body>
 </html>
