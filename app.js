@@ -192,10 +192,13 @@ function renderCards() {
   qs("[data-work-intro]").textContent = content.workIntro;
   qs("[data-work]").innerHTML = content.workWith
     .map(
-      ([title, text]) => `
-        <article class="work-card reveal">
-          <h3>${title}</h3>
-          <p>${text}</p>
+      ([title, text, image]) => `
+        <article class="work-card reveal" tabindex="0">
+          <img class="work-card-image" src="${image}" alt="" loading="lazy" decoding="async">
+          <div class="work-card-overlay">
+            <h3>${title}</h3>
+            <p>${text}</p>
+          </div>
         </article>`
     )
     .join("");
