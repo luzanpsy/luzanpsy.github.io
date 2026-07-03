@@ -91,9 +91,10 @@ function renderQuiz() {
       <div class="quiz-result">
         <p class="eyebrow">Результат</p>
         <h3>${getResultText()}</h3>
-        <p>Если откликается, заполните форму записи. На первой встрече можно спокойно проверить, насколько вам подходит мой темп, стиль и способ быть в контакте.</p>
+        <p>Если откликается, заполните форму записи. На первой встрече можно спокойно проверить, насколько вам подходит мой темп, стиль и способ быть в контакте. А гайд можно забрать прямо сейчас.</p>
         <div class="quiz-actions">
           <a class="button button-dark" href="${content.links.booking}" target="_blank" rel="noopener">Заполнить форму для записи</a>
+          <a class="button button-light" href="${content.links.migrationGuide}" target="_blank" rel="noopener">Забрать бесплатный гайд</a>
           <button class="button button-light" type="button" data-quiz-restart>Пройти еще раз</button>
         </div>
       </div>`;
