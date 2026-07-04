@@ -57,32 +57,21 @@ function renderQuiz() {
               </button>`
           )
           .join("")}
-      </div>
-      <div class="quiz-actions">
-        <button class="button button-light" type="button" data-quiz-back ${current === 0 ? "disabled" : ""}>Назад</button>
-        <button class="button button-dark" type="button" data-quiz-next ${answers[current] === null ? "disabled" : ""}>${isLast ? "Показать результат" : "Дальше"}</button>
       </div>`;
 
     qsa("[data-value]", quiz).forEach((button) => {
       button.addEventListener("click", () => {
         answers[current] = Number(button.dataset.value);
-        renderStep();
+        button.classList.add("is-selected");
+        window.setTimeout(() => {
+          if (isLast) {
+            renderResult();
+            return;
+          }
+          current += 1;
+          renderStep();
+        }, 180);
       });
-    });
-
-    qs("[data-quiz-back]", quiz).addEventListener("click", () => {
-      current = Math.max(0, current - 1);
-      renderStep();
-    });
-
-    qs("[data-quiz-next]", quiz).addEventListener("click", () => {
-      if (answers[current] === null) return;
-      if (isLast) {
-        renderResult();
-        return;
-      }
-      current += 1;
-      renderStep();
     });
   };
 
@@ -407,9 +396,18 @@ function bindMenu() {
   });
 }
 
-function bindFormEmbed() {
-  const frame = qs("[data-form-embed]");
-  if (frame) frame.src = content.links.bookingEmbed;
+function bindBookingForm() {
+  const form = qs("[data-booking-form]");
+  if (!form) return;
+
+  const status = qs("[data-form-status]");
+  form.addEventListener("submit", () => {
+    if (status) status.textContent = "Отправляю заявку...";
+    window.setTimeout(() => {
+      if (status) status.textContent = "Заявка отправлена. Я свяжусь с вами в указанном контакте.";
+      form.reset();
+    }, 1200);
+  });
 }
 
 setTextAndLinks();
@@ -426,4 +424,4 @@ renderFaq();
 renderContact();
 bindScrollEffects();
 bindMenu();
-bindFormEmbed();
+bindBookingForm();

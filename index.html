@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/images/sergey-hero.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260704-work-images">
+    <link rel="stylesheet" href="styles.css?v=20260704-form-guide">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -150,7 +150,7 @@
         <div class="section-heading reveal">
           <p class="eyebrow">Мини-опрос</p>
           <h2 id="quiz-title">Могу ли я вам помочь?</h2>
-          <p class="section-lead">Ответьте на несколько вопросов. Это не диагностика, а быстрый способ понять, с чем можно прийти на первую встречу. После прохождения можно забрать бесплатный гайд для тех, кому пришлось уехать.</p>
+          <p class="section-lead">Ответьте на несколько вопросов. Это не диагностика, а быстрый способ понять, с чем можно прийти на первую встречу. После прохождения можно забрать <strong>бесплатный гайд для тех, кому пришлось уехать.</strong></p>
         </div>
         <div class="quiz-card reveal" data-quiz></div>
       </section>
@@ -293,11 +293,54 @@
         <div class="form-copy reveal">
           <p class="eyebrow">Форма записи</p>
           <h2 id="form-title">Заявку можно оставить прямо здесь.</h2>
-          <p>Если встроенная форма не открылась сразу, можно перейти к ней в отдельном окне. Нажимая на отправку формы, вы соглашаетесь с политикой конфиденциальности.</p>
+          <p>Заполните короткую форму. Ответы попадут в мою таблицу заявок, а я свяжусь с вами в указанном контакте.</p>
           <a class="text-link" data-link="booking" target="_blank" rel="noopener">Открыть форму отдельно</a>
         </div>
         <div class="form-frame reveal">
-          <iframe data-form-embed title="Форма записи на консультацию" loading="lazy"></iframe>
+          <form class="booking-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfgN3sonqlshvwsRlENaCSzEirda6tQcOQl8snQQvuRC_BXyA/formResponse" method="POST" target="booking-form-target" data-booking-form>
+            <label>
+              <span>Ваше имя</span>
+              <input name="entry.1645673894" type="text" autocomplete="name" required>
+            </label>
+            <label>
+              <span>Сколько вам лет?</span>
+              <input name="entry.1599635020" type="text" inputmode="numeric" required>
+            </label>
+            <label class="form-wide">
+              <span>Какой у вас запрос?</span>
+              <textarea name="entry.1367293673" rows="4" required></textarea>
+            </label>
+            <label>
+              <span>Был ли у вас опыт терапии с психологом?</span>
+              <input name="entry.479060361" type="text" required>
+            </label>
+            <label>
+              <span>Если да, то какой подход?</span>
+              <input name="entry.248417600" type="text">
+            </label>
+            <label>
+              <span>На данный момент вы находитесь в терапии?</span>
+              <input name="entry.1042023456" type="text" required>
+            </label>
+            <label class="form-wide">
+              <span>Что вы ждете от наших сессий? Что для вас важно?</span>
+              <textarea name="entry.2003803858" rows="4" required></textarea>
+            </label>
+            <label>
+              <span>Как вы обо мне узнали?</span>
+              <input name="entry.1995159246" type="text" required>
+            </label>
+            <label>
+              <span>Способ связи с вами: Telegram / WhatsApp</span>
+              <input name="entry.113982707" type="text" autocomplete="tel" required>
+            </label>
+            <p class="form-consent">Нажимая “Отправить заявку”, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.</p>
+            <div class="form-submit">
+              <button class="button button-dark" type="submit">Отправить заявку</button>
+              <span data-form-status aria-live="polite"></span>
+            </div>
+          </form>
+          <iframe class="form-target" name="booking-form-target" title="Отправка формы"></iframe>
         </div>
       </section>
     </main>
@@ -322,7 +365,7 @@
       </div>
     </footer>
 
-    <script src="content.js?v=20260704-guide-quiz"></script>
-    <script src="app.js?v=20260704-guide-quiz"></script>
+    <script src="content.js?v=20260704-form-guide"></script>
+    <script src="app.js?v=20260704-form-guide"></script>
   </body>
 </html>

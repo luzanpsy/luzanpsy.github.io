@@ -22,8 +22,7 @@ window.siteContent = {
     personalDataConsent: "personal-data-consent.html",
     mailingConsent: "mailing-consent.html",
     migrationGuide: "assets/docs/migration-guide-sergey-luzan.pdf",
-    education: "https://drive.google.com/drive/folders/14cOMGOBuwntsae7J5V_auDslr9-wVck_?usp=sharing",
-    bookingEmbed: "https://docs.google.com/forms/d/e/1FAIpQLSfgN3sonqlshvwsRlENaCSzEirda6tQcOQl8snQQvuRC_BXyA/viewform?embedded=true"
+    education: "https://drive.google.com/drive/folders/14cOMGOBuwntsae7J5V_auDslr9-wVck_?usp=sharing"
   },
   navigation: [
     ["work", "Запросы"],
