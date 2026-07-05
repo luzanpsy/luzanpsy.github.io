@@ -10,7 +10,12 @@ function setTextAndLinks() {
 
   qsa("[data-link]").forEach((node) => {
     const href = content.links[node.dataset.link];
-    if (href) node.href = href;
+    if (!href) return;
+    node.href = href;
+    if (href.startsWith("#")) {
+      node.removeAttribute("target");
+      node.removeAttribute("rel");
+    }
   });
 }
 
@@ -82,7 +87,7 @@ function renderQuiz() {
         <h3>${getResultText()}</h3>
         <p>Если откликается, заполните форму записи. На первой встрече можно спокойно проверить, насколько вам подходит мой темп, стиль и способ быть в контакте. А гайд можно забрать прямо сейчас.</p>
         <div class="quiz-actions">
-          <a class="button button-dark" href="${content.links.booking}" target="_blank" rel="noopener">Заполнить форму для записи</a>
+          <a class="button button-dark" href="${content.links.booking}">Заполнить форму для записи</a>
           <a class="button button-light" href="${content.links.migrationGuide}" target="_blank" rel="noopener">Забрать бесплатный гайд</a>
           <button class="button button-light" type="button" data-quiz-restart>Пройти еще раз</button>
         </div>
@@ -183,7 +188,7 @@ function renderCards() {
   qs("[data-work]").innerHTML = content.workWith
     .map(
       ([title, text, image]) => `
-        <article class="work-card reveal" tabindex="0">
+        <article class="work-card reveal" tabindex="0" role="button" aria-expanded="false">
           <img class="work-card-image" src="${image}" alt="" loading="lazy" decoding="async">
           <div class="work-card-overlay">
             <h3>${title}</h3>
@@ -223,7 +228,7 @@ function renderCards() {
           <h3>${title}</h3>
           <p>${note}</p>
           <strong>${price}</strong>
-          <a class="text-link" href="${content.links.booking}" target="_blank" rel="noopener">Записаться</a>
+          <a class="text-link" href="${content.links.booking}">Записаться</a>
         </article>`
     )
     .join("");
@@ -396,6 +401,26 @@ function bindMenu() {
   });
 }
 
+function bindWorkCards() {
+  qsa(".work-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const isOpen = card.classList.toggle("is-open");
+      card.setAttribute("aria-expanded", String(isOpen));
+      qsa(".work-card").forEach((otherCard) => {
+        if (otherCard === card) return;
+        otherCard.classList.remove("is-open");
+        otherCard.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      card.click();
+    });
+  });
+}
+
 function bindBookingForm() {
   const form = qs("[data-booking-form]");
   if (!form) return;
@@ -424,4 +449,5 @@ renderFaq();
 renderContact();
 bindScrollEffects();
 bindMenu();
+bindWorkCards();
 bindBookingForm();

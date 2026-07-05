@@ -10,7 +10,7 @@ window.siteContent = {
     email: "9528291099@mail.com"
   },
   links: {
-    booking: "https://forms.gle/MHCZqoaQ8uBmWKcK8",
+    booking: "#form",
     telegram: "https://t.me/LUSAN_LUZAN",
     telegramChannel: "https://t.me/LUSAN_LUZAN",
     instagram: "https://instagram.com/luzansergey/",
