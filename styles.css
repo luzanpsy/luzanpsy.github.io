@@ -1345,22 +1345,33 @@ p {
 
 .cookie-notice {
   position: fixed;
-  z-index: 50;
-  left: auto;
-  right: 22px;
-  bottom: 22px;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
   box-sizing: border-box;
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 22px;
-  width: min(720px, calc(100% - 44px));
-  padding: 18px 20px;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 18px;
+  width: min(560px, calc(100% - 32px));
+  padding: 26px;
   border: 1px solid rgba(145, 93, 68, 0.35);
   border-radius: 16px;
   background: rgba(250, 248, 244, 0.96);
   box-shadow: 0 16px 42px rgba(77, 51, 37, 0.16);
   backdrop-filter: blur(12px);
+  transform: translate(-50%, -50%);
+}
+
+body.cookie-open::before {
+  content: "";
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  background: rgba(39, 27, 21, 0.28);
+  backdrop-filter: blur(3px);
 }
 
 .cookie-notice[hidden] { display: none; }
@@ -1518,14 +1529,11 @@ p {
 
 @media (max-width: 680px) {
   .cookie-notice {
-    left: auto;
-    right: 12px;
-    bottom: 12px;
-    align-items: stretch;
-    flex-direction: column;
-    gap: 12px;
+    top: 50%;
+    left: 50%;
+    gap: 14px;
     width: calc(100% - 24px);
-    padding: 15px;
+    padding: 20px;
     border-radius: 14px;
   }
 
