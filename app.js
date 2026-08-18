@@ -23,7 +23,7 @@ function renderNavigation() {
   const nav = qs("[data-nav]");
   nav.innerHTML = content.navigation
     .map(([id, label]) => `<a href="#${id}" data-section-link="${id}">${label}</a>`)
-    .join("");
+    .join("") + `<a href="articles/trevoga-posle-pereezda.html">Статьи</a>`;
 }
 
 function renderManifest() {
