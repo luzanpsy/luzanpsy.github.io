@@ -1374,6 +1374,10 @@ body.cookie-open::before {
   backdrop-filter: blur(3px);
 }
 
+body.cookie-open .cookie-notice {
+  display: flex !important;
+}
+
 .cookie-notice[hidden] { display: none; }
 .cookie-notice__copy { max-width: 480px; }
 .cookie-notice__copy strong { display: block; margin-bottom: 5px; color: var(--ink); font-size: 15px; }
