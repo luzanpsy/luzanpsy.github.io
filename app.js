@@ -435,6 +435,32 @@ function bindBookingForm() {
   });
 }
 
+function bindCookieNotice() {
+  const notice = qs("[data-cookie-notice]");
+  if (!notice) return;
+
+  const storageKey = "luzan-cookie-choice";
+  let choice = null;
+  try {
+    choice = window.localStorage.getItem(storageKey);
+  } catch {
+    // The notice remains usable when storage is unavailable.
+  }
+
+  if (!choice) notice.hidden = false;
+
+  qsa("[data-cookie-choice]", notice).forEach((button) => {
+    button.addEventListener("click", () => {
+      try {
+        window.localStorage.setItem(storageKey, button.dataset.cookieChoice);
+      } catch {
+        // Dismiss for this visit even when storage is unavailable.
+      }
+      notice.hidden = true;
+    });
+  });
+}
+
 setTextAndLinks();
 renderNavigation();
 renderManifest();
@@ -451,3 +477,4 @@ bindScrollEffects();
 bindMenu();
 bindWorkCards();
 bindBookingForm();
+bindCookieNotice();
