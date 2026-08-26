@@ -1345,7 +1345,7 @@ p {
 
 .cookie-notice {
   position: fixed;
-  z-index: 101;
+  z-index: 1001;
   top: calc(var(--header) + 22px);
   left: 50%;
   right: auto;
@@ -1367,20 +1367,18 @@ p {
   transform: translateX(-50%);
 }
 
-body.cookie-open {
-  overflow: hidden;
-}
-
 body.cookie-open::before {
   content: "";
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
   inset: 0;
   background: rgba(39, 27, 21, 0.28);
   backdrop-filter: blur(3px);
+  pointer-events: none;
 }
 
-body.cookie-open .cookie-notice {
+body.cookie-open .cookie-notice,
+body.cookie-open .cookie-notice[hidden] {
   display: flex !important;
 }
 

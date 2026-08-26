@@ -448,6 +448,7 @@ function bindCookieNotice() {
   }
 
   if (!choice) {
+    notice.hidden = false;
     notice.removeAttribute("hidden");
     document.body.classList.add("cookie-open");
   }
