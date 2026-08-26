@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/images/sergey-hero.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260826-cookie-scroll-fix">
+    <link rel="stylesheet" href="styles.css?v=20260826-cookie-hero">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -130,6 +130,17 @@
       <section class="hero section" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
           <h1 id="hero-title" data-text="heroTitle"></h1>
+          <aside class="cookie-notice" data-cookie-notice hidden aria-label="Уведомление о cookie">
+            <div class="cookie-notice__copy">
+              <strong>О файлах cookie</strong>
+              <p>Сайт использует технические файлы cookie и локальное сохранение настроек, чтобы страницы работали корректно и ваш выбор не терялся.</p>
+              <a href="privacy.html">Подробнее о конфиденциальности</a>
+            </div>
+            <div class="cookie-notice__actions">
+              <button class="button button-outline cookie-notice__button" type="button" data-cookie-choice="decline">Только необходимые</button>
+              <button class="button button-primary cookie-notice__button" type="button" data-cookie-choice="accept">Принять</button>
+            </div>
+          </aside>
           <p class="role" data-text="role"></p>
           <p class="tagline" data-text="tagline"></p>
           <p class="intro" data-text="intro"></p>
@@ -345,19 +356,7 @@
       </div>
     </footer>
 
-    <aside class="cookie-notice" data-cookie-notice hidden aria-label="Уведомление о cookie">
-      <div class="cookie-notice__copy">
-        <strong>О файлах cookie</strong>
-        <p>Сайт использует технические файлы cookie и локальное сохранение настроек, чтобы страницы работали корректно и ваш выбор не терялся.</p>
-        <a href="privacy.html">Подробнее о конфиденциальности</a>
-      </div>
-      <div class="cookie-notice__actions">
-        <button class="button button-outline cookie-notice__button" type="button" data-cookie-choice="decline">Только необходимые</button>
-        <button class="button button-primary cookie-notice__button" type="button" data-cookie-choice="accept">Принять</button>
-      </div>
-    </aside>
-
     <script src="content.js?v=20260818-articles-cookie-2"></script>
-    <script src="app.js?v=20260826-cookie-scroll-fix"></script>
+    <script src="app.js?v=20260826-cookie-hero"></script>
   </body>
 </html>
