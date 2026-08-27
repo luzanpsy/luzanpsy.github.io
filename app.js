@@ -371,19 +371,20 @@ function bindScrollEffects() {
   qsa(".reveal").forEach((node) => revealObserver.observe(node));
 
   const navLinks = qsa("[data-section-link]");
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.sectionLink === entry.target.id));
-      });
-    },
-    { threshold: 0.28 }
-  );
-  navLinks.forEach((link) => {
-    const section = qs(`#${link.dataset.sectionLink}`);
-    if (section) sectionObserver.observe(section);
-  });
+  const trackedSections = navLinks
+    .map((link) => qs(`#${link.dataset.sectionLink}`))
+    .filter(Boolean);
+  const updateActiveSection = () => {
+    const marker = window.scrollY + 140;
+    let current = trackedSections[0];
+    trackedSections.forEach((section) => {
+      if (section.offsetTop <= marker) current = section;
+    });
+    navLinks.forEach((link) => link.classList.toggle("is-active", link.dataset.sectionLink === current?.id));
+  };
+  updateActiveSection();
+  window.addEventListener("scroll", updateActiveSection, { passive: true });
+  window.addEventListener("hashchange", updateActiveSection);
 }
 
 function bindMenu() {
