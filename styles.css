@@ -996,6 +996,8 @@ p {
 
   .podcast-cover {
     max-width: 150px;
+    width: 100%;
+    margin-inline: auto;
   }
 
   .podcast-player {
