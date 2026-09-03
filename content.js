@@ -30,9 +30,9 @@ window.siteContent = {
     ["values", "Подход"],
     ["price", "Стоимость"],
     ["about", "Обо мне"],
+    ["podcast", "Подкаст"],
     ["quotes", "Цитаты"],
-    ["contact", "Контакты"],
-    ["podcast", "Подкаст"]
+    ["contact", "Контакты"]
   ],
   stats: [
     {
