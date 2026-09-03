@@ -909,7 +909,8 @@ p {
 .podcast-player {
   display: block;
   width: 100%;
-  height: 235px;
+  height: 235px !important;
+  min-height: 235px !important;
   max-width: none;
   margin-top: 18px;
   border: 1px solid var(--line);
@@ -998,7 +999,8 @@ p {
   }
 
   .podcast-player {
-    height: 235px;
+    height: 235px !important;
+    min-height: 235px !important;
   }
 
   .podcast-platforms a { font-size: 13px; padding: 7px 9px; }
