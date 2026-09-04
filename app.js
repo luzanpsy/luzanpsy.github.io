@@ -449,8 +449,11 @@ function bindCookieNotice() {
   }
 
   if (!choice) {
-    notice.hidden = false;
-    notice.removeAttribute("hidden");
+    window.setTimeout(() => {
+      notice.hidden = false;
+      notice.removeAttribute("hidden");
+      notice.classList.add("is-visible");
+    }, 2000);
   }
 
   qsa("[data-cookie-choice]", notice).forEach((button) => {
@@ -460,6 +463,7 @@ function bindCookieNotice() {
       } catch {
         // Dismiss for this visit even when storage is unavailable.
       }
+      notice.classList.remove("is-visible");
       notice.hidden = true;
     });
   });

@@ -1469,34 +1469,39 @@ p {
 
 .cookie-notice {
   position: fixed;
-  right: 24px;
+  right: 18px;
   bottom: 24px;
   z-index: 1000;
   box-sizing: border-box;
   display: flex;
-  align-items: center;
-  gap: 18px;
-  width: min(600px, calc(100vw - 48px));
+  align-items: stretch;
+  gap: 14px;
+  width: min(520px, calc(100vw - 36px));
   padding: 18px 20px;
   border: 1px solid rgba(145, 93, 68, 0.35);
   border-radius: 16px;
   background: rgba(250, 248, 244, 0.98);
   box-shadow: 0 14px 36px rgba(77, 51, 37, 0.12);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 520ms cubic-bezier(0.22, 1, 0.36, 1), transform 520ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Keep consent independent from document flow on every page and domain. */
 .cookie-notice:not([hidden]) {
   position: fixed;
-  inset-inline-start: 50%;
+  inset-inline-start: auto;
   inset-inline-end: auto;
-  right: auto;
+  right: 18px;
   bottom: 24px;
-  left: 50%;
+  left: auto;
   margin: 0;
-  width: min(600px, calc(100vw - 48px));
-  transform: translateX(-50%);
+  width: min(520px, calc(100vw - 36px));
+  transform: translateY(20px);
 }
+
+.cookie-notice.is-visible { opacity: 1; transform: translateY(0); }
 
 .cookie-notice[hidden] { display: none; }
 .cookie-notice__copy { max-width: 480px; }
