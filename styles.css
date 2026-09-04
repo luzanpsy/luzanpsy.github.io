@@ -1488,13 +1488,14 @@ p {
 /* Keep consent independent from document flow on every page and domain. */
 .cookie-notice:not([hidden]) {
   position: fixed;
-  inset-inline-start: auto;
-  inset-inline-end: 24px;
-  right: 24px;
+  inset-inline-start: 50%;
+  inset-inline-end: auto;
+  right: auto;
   bottom: 24px;
-  left: auto;
+  left: 50%;
   margin: 0;
-  transform: none;
+  width: min(600px, calc(100vw - 48px));
+  transform: translateX(-50%);
 }
 
 .cookie-notice[hidden] { display: none; }
@@ -1663,9 +1664,12 @@ p {
   }
 
   .cookie-notice:not([hidden]) {
+    inset-inline-start: 12px;
+    inset-inline-end: 12px;
     right: 12px;
     left: 12px;
     width: auto;
+    transform: none;
   }
 
   .cookie-notice__actions {
