@@ -451,7 +451,6 @@ function bindCookieNotice() {
   if (!choice) {
     notice.hidden = false;
     notice.removeAttribute("hidden");
-    document.body.classList.add("cookie-open");
   }
 
   qsa("[data-cookie-choice]", notice).forEach((button) => {
@@ -462,7 +461,6 @@ function bindCookieNotice() {
         // Dismiss for this visit even when storage is unavailable.
       }
       notice.hidden = true;
-      document.body.classList.remove("cookie-open");
     });
   });
 }

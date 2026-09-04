@@ -130,17 +130,6 @@
       <section class="hero section" aria-labelledby="hero-title">
         <div class="hero-copy reveal">
           <h1 id="hero-title" data-text="heroTitle"></h1>
-          <aside class="cookie-notice" data-cookie-notice hidden aria-label="Уведомление о cookie">
-            <div class="cookie-notice__copy">
-              <strong>О файлах cookie</strong>
-              <p>Сайт использует технические файлы cookie и локальное сохранение настроек, чтобы страницы работали корректно и ваш выбор не терялся.</p>
-              <a href="privacy.html">Подробнее о конфиденциальности</a>
-            </div>
-            <div class="cookie-notice__actions">
-              <button class="button button-outline cookie-notice__button" type="button" data-cookie-choice="decline">Только необходимые</button>
-              <button class="button button-primary cookie-notice__button" type="button" data-cookie-choice="accept">Принять</button>
-            </div>
-          </aside>
           <p class="role" data-text="role"></p>
           <p class="tagline" data-text="tagline"></p>
           <p class="intro" data-text="intro"></p>
@@ -356,6 +345,16 @@
         </div>
       </section>
     </main>
+
+    <aside class="cookie-notice" data-cookie-notice hidden aria-label="Уведомление о cookie">
+      <div class="cookie-notice__copy">
+        <p>Сайт использует cookies, чтобы корректно работать и запоминать ваше согласие. Продолжая пользоваться сайтом, вы соглашаетесь с использованием cookies.</p>
+        <a href="privacy.html">Подробнее о конфиденциальности</a>
+      </div>
+      <div class="cookie-notice__actions">
+        <button class="button button-primary cookie-notice__button" type="button" data-cookie-choice="accept">Принять</button>
+      </div>
+    </aside>
 
     <footer class="footer">
       <div class="footer-main">
