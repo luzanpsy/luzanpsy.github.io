@@ -1485,6 +1485,15 @@ p {
   backdrop-filter: blur(10px);
 }
 
+/* Keep consent independent from document flow on every page and domain. */
+.cookie-notice:not([hidden]) {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  left: auto;
+  margin: 0;
+}
+
 .cookie-notice[hidden] { display: none; }
 .cookie-notice__copy { max-width: 480px; }
 .cookie-notice__copy p { margin: 0 0 6px; color: var(--muted); font-size: 13px; line-height: 1.45; }
