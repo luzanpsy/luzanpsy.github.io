@@ -1488,10 +1488,13 @@ p {
 /* Keep consent independent from document flow on every page and domain. */
 .cookie-notice:not([hidden]) {
   position: fixed;
+  inset-inline-start: auto;
+  inset-inline-end: 24px;
   right: 24px;
   bottom: 24px;
   left: auto;
   margin: 0;
+  transform: none;
 }
 
 .cookie-notice[hidden] { display: none; }
@@ -1648,6 +1651,7 @@ p {
 
 @media (max-width: 680px) {
   .cookie-notice {
+    left: 12px;
     right: 12px;
     bottom: 12px;
     align-items: stretch;
@@ -1656,6 +1660,12 @@ p {
     width: calc(100vw - 24px);
     padding: 16px;
     border-radius: 14px;
+  }
+
+  .cookie-notice:not([hidden]) {
+    right: 12px;
+    left: 12px;
+    width: auto;
   }
 
   .cookie-notice__actions {
