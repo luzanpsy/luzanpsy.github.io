@@ -464,7 +464,9 @@ function bindCookieNotice() {
         // Dismiss for this visit even when storage is unavailable.
       }
       notice.classList.remove("is-visible");
-      notice.hidden = true;
+      window.setTimeout(() => {
+        notice.hidden = true;
+      }, 520);
     });
   });
 }
