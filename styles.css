@@ -2151,6 +2151,7 @@ p {
   .podcast-band {
     min-width: 0;
     margin-inline: auto;
+    padding: 24px 16px;
     overflow: hidden;
   }
 
