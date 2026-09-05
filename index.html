@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="preload" href="assets/images/sergey-hero.webp" as="image" fetchpriority="high">
-    <link rel="stylesheet" href="styles.css?v=20260905-podcast-padding-fix">
+    <link rel="stylesheet" href="styles.css?v=20260905-form-consents">
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -335,7 +335,16 @@
               <span>Способ связи с вами: Telegram / WhatsApp*</span>
               <input name="entry.113982707" type="text" autocomplete="tel" required>
             </label>
-            <p class="form-consent">Нажимая “Отправить заявку”, вы соглашаетесь с политикой конфиденциальности и обработкой персональных данных.</p>
+            <div class="form-consents">
+              <label class="consent-check">
+                <input type="checkbox" required>
+                <span>Я согласен(на) с <a data-link="personalDataPolicy">политикой обработки ПДн</a> и даю <a data-link="personalDataConsent">согласие на обработку ПДн</a>.</span>
+              </label>
+              <label class="consent-check">
+                <input type="checkbox" required>
+                <span>Я согласен(на) получать информационные и организационные сообщения. <a data-link="mailingConsent">Подробнее</a>.</span>
+              </label>
+            </div>
             <div class="form-submit">
               <button class="button button-dark" type="submit">Отправить заявку</button>
               <span data-form-status aria-live="polite"></span>

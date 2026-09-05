@@ -1402,6 +1402,7 @@ p {
 
 .form-wide,
 .form-consent,
+.form-consents,
 .form-submit {
   grid-column: 1 / -1;
 }
@@ -1410,6 +1411,51 @@ p {
   margin: 0;
   color: var(--muted);
   font-size: 14px;
+}
+
+.form-consents {
+  display: grid;
+  gap: 12px;
+  margin-top: 2px;
+}
+
+.booking-form .consent-check {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  cursor: pointer;
+}
+
+.booking-form .consent-check input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  min-height: 20px;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.booking-form .consent-check span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.booking-form .consent-check a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.booking-form .consent-check:has(input:focus-visible) {
+  outline: 2px solid rgba(138, 90, 68, 0.28);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 .form-submit {
