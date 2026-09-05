@@ -358,17 +358,33 @@ function bindScrollEffects() {
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
 
+  const showReveal = (node) => {
+    node.classList.add("is-visible");
+    revealObserver.unobserve(node);
+  };
+
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add("is-visible");
-        revealObserver.unobserve(entry.target);
+        showReveal(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -36px" }
+    { threshold: 0.01, rootMargin: "0px 0px -24px" }
   );
-  qsa(".reveal").forEach((node) => revealObserver.observe(node));
+
+  const revealNodes = qsa(".reveal");
+  revealNodes.forEach((node) => revealObserver.observe(node));
+
+  const revealVisibleAfterResize = () => {
+    revealNodes.forEach((node) => {
+      if (node.classList.contains("is-visible")) return;
+      const rect = node.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) showReveal(node);
+    });
+  };
+
+  window.addEventListener("resize", revealVisibleAfterResize, { passive: true });
 
   const navLinks = qsa("[data-section-link]");
   const trackedSections = navLinks
