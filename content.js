@@ -14,7 +14,7 @@ window.siteContent = {
     telegram: "https://t.me/LUSAN_LUZAN",
     telegramChannel: "https://t.me/LUSAN_LUZAN",
     instagram: "https://instagram.com/luzansergey/",
-    podcast: "https://psycommunity.mave.digital/",
+    podcast: "https://rss.com/podcasts/pogranichnikvbare/",
     tiktok: "https://www.tiktok.com/@luzansergey/",
     taplink: "https://taplink.cc/luzan_psy",
     offer: "https://taplink.cc/luzan_psy_oferta",
